@@ -10,10 +10,10 @@ permissions:
 
 env:
   BG: 0d1117
-  TITLE: abd200
-  TEXT: 68b587
-  ICON: b7d364
-  BORDER: 30363d
+  TITLE: b366ff
+  TEXT: c792ea
+  ICON: a855f7
+  BORDER: 7c3aed
 
 jobs:
   build:

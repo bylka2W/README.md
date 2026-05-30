@@ -25,15 +25,17 @@ jobs:
         run: |
           HOUR=$(date +%H)
           case $((HOUR % 8)) in
-            0) TITLE=ff0000; TEXT=ff6666; ICON=ff4444; BORDER=cc0000;;  # красный
-            1) TITLE=ff7f00; TEXT=ffaa44; ICON=ff9900; BORDER=cc6600;;  # оранжевый
-            2) TITLE=ffff00; TEXT=ffff66; ICON=ffdd00; BORDER=cccc00;;  # жёлтый
-            3) TITLE=00ff00; TEXT=66ff66; ICON=44ff44; BORDER=00cc00;;  # зелёный
-            4) TITLE=00ffff; TEXT=66ffff; ICON=44ddff; BORDER=00cccc;;  # голубой
-            5) TITLE=0000ff; TEXT=6666ff; ICON=4444ff; BORDER=0000cc;;  # синий
-            6) TITLE=8b00ff; TEXT=aa66ff; ICON=9944ff; BORDER=6a00cc;;  # фиолетовый
-            7) TITLE=$(printf '%02x%02x%02x' $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)))
-               TEXT=$(printf '%02x%02x%02x' $((RANDOM%128+128)) $((RANDOM%128+128)) $((RANDOM%128+128)))
+            0) TITLE=e06c75; TEXT=be9196; ICON=d19a9e; BORDER=8b4545;;  # мягкий красный
+            1) TITLE=d19a66; TEXT=c4a882; ICON=cc9966; BORDER=8b6914;;  # мягкий оранжевый
+            2) TITLE=e5c07b; TEXT=c4b998; ICON=d4c088; BORDER=8b7d3c;;  # мягкий жёлтый
+            3) TITLE=98c379; TEXT=a3b89a; ICON=9db88a; BORDER=4a6b3c;;  # мягкий зелёный
+            4) TITLE=7ec8cc; TEXT=9ab8ba; ICON=8cc0c2; BORDER=3c6b6e;;  # мягкий голубой
+            5) TITLE=61afef; TEXT=8fa6be; ICON=7aa8d4; BORDER=3c5a8b;;  # мягкий синий
+            6) TITLE=c678dd; TEXT=ae9abe; ICON=b890d0; BORDER=6b3c8b;;  # мягкий фиолетовый
+            7) R=$((RANDOM%56+180)); G=$((RANDOM%56+180)); B=$((RANDOM%56+180))
+               TITLE=$(printf '%02x%02x%02x' $R $G $B)
+               R=$((RANDOM%56+140)); G=$((RANDOM%56+140)); B=$((RANDOM%56+140))
+               TEXT=$(printf '%02x%02x%02x' $R $G $B)
                ICON=$TEXT
                BORDER=$TITLE;;
           esac

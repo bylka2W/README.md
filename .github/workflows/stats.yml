@@ -25,13 +25,13 @@ jobs:
         run: |
           HOUR=$(date +%H)
           case $((HOUR % 8)) in
-            0) TITLE=e06c75; TEXT=be9196; ICON=d19a9e; BORDER=8b4545;;  # мягкий красный
-            1) TITLE=d19a66; TEXT=c4a882; ICON=cc9966; BORDER=8b6914;;  # мягкий оранжевый
-            2) TITLE=e5c07b; TEXT=c4b998; ICON=d4c088; BORDER=8b7d3c;;  # мягкий жёлтый
-            3) TITLE=98c379; TEXT=a3b89a; ICON=9db88a; BORDER=4a6b3c;;  # мягкий зелёный
-            4) TITLE=7ec8cc; TEXT=9ab8ba; ICON=8cc0c2; BORDER=3c6b6e;;  # мягкий голубой
-            5) TITLE=61afef; TEXT=8fa6be; ICON=7aa8d4; BORDER=3c5a8b;;  # мягкий синий
-            6) TITLE=c678dd; TEXT=ae9abe; ICON=b890d0; BORDER=6b3c8b;;  # мягкий фиолетовый
+            0) TITLE=e06c75; TEXT=be9196; ICON=d19a9e; BORDER=8b4545;;
+            1) TITLE=d19a66; TEXT=c4a882; ICON=cc9966; BORDER=8b6914;;
+            2) TITLE=e5c07b; TEXT=c4b998; ICON=d4c088; BORDER=8b7d3c;;
+            3) TITLE=98c379; TEXT=a3b89a; ICON=9db88a; BORDER=4a6b3c;;
+            4) TITLE=7ec8cc; TEXT=9ab8ba; ICON=8cc0c2; BORDER=3c6b6e;;
+            5) TITLE=56b6c2; TEXT=8ab8be; ICON=6fbcc4; BORDER=3c6b6e;;
+            6) TITLE=c678dd; TEXT=ae9abe; ICON=b890d0; BORDER=6b3c8b;;
             7) R=$((RANDOM%56+180)); G=$((RANDOM%56+180)); B=$((RANDOM%56+180))
                TITLE=$(printf '%02x%02x%02x' $R $G $B)
                R=$((RANDOM%56+140)); G=$((RANDOM%56+140)); B=$((RANDOM%56+140))
@@ -54,3 +54,8 @@ jobs:
           git add stats.svg streak.svg graph.svg pin1.svg pin2.svg
           git diff --staged --quiet || git commit -m "Update stats"
           git push
+
+      - name: Push to GitVerse
+        run: |
+          git remote add gitverse https://${{ secrets.GITVERSE_USER }}:${{ secrets.GITVERSE_TOKEN }}@gitverse.ru/bylka2W/bylka2W.git
+          git push gitverse main --force

@@ -9,13 +9,13 @@
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #abd200;
+            fill: #b366ff;
             animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           
-    .description { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #68b587 }
-    .gray { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #68b587 }
-    .icon { fill: #b7d364 }
+    .description { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c792ea }
+    .gray { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c792ea }
+    .icon { fill: #a855f7 }
     .badge { font: 600 11px 'Segoe UI', Ubuntu, Sans-Serif; }
     .badge rect { opacity: 0.2 }
   
@@ -29,11 +29,11 @@
           data-testid="card-bg"
           x="0.5"
           y="0.5"
-          rx="16"
+          rx="4.5"
           height="99%"
           stroke="#E4E2E2"
           width="399"
-          fill="#0a0f0b"
+          fill="#0d1117"
           stroke-opacity="1"
         />
 

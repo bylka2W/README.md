@@ -1,0 +1,25 @@
+name: Update Stats
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats
+        run: |
+          curl -o stats.svg "https://github-readme-stats-eight-theta.vercel.app/api?username=bylka2W&show_icons=true&theme=merko"
+          curl -o streak.svg "https://streak-stats.demolab.com/?user=bylka2W&theme=merko"
+
+      - name: Commit
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@github.com"
+          git add stats.svg streak.svg
+          git commit -m "Update stats" || exit 0
+          git push

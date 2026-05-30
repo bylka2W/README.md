@@ -8,6 +8,13 @@ on:
 permissions:
   contents: write
 
+env:
+  BG: 0d1117
+  TITLE: abd200
+  TEXT: 68b587
+  ICON: b7d364
+  BORDER: 30363d
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,14 +23,16 @@ jobs:
 
       - name: Generate stats
         run: |
-          curl -o stats.svg "https://github-readme-stats-eight-theta.vercel.app/api?username=bylka2W&show_icons=true&theme=merko"
-          curl -o streak.svg "https://streak-stats.demolab.com/?user=bylka2W&theme=merko"
-          curl -o graph.svg "https://github-readme-activity-graph.vercel.app/graph?username=bylka2W&theme=merko"
+          curl -o stats.svg "https://github-readme-stats-eight-theta.vercel.app/api?username=bylka2W&show_icons=true&bg_color=${{ env.BG }}&title_color=${{ env.TITLE }}&text_color=${{ env.TEXT }}&icon_color=${{ env.ICON }}&border_color=${{ env.BORDER }}&border_radius=20&_=${{ github.run_id }}"
+          curl -o streak.svg "https://streak-stats.demolab.com/?user=bylka2W&background=${{ env.BG }}&ring=${{ env.TITLE }}&fire=${{ env.TITLE }}&currStreakLabel=${{ env.TITLE }}&sideNums=${{ env.TEXT }}&sideLabels=${{ env.TEXT }}&dates=${{ env.TEXT }}&border=${{ env.BORDER }}&stroke=${{ env.BORDER }}&border_radius=20&_=${{ github.run_id }}"
+          curl -o graph.svg "https://github-readme-activity-graph.vercel.app/graph?username=bylka2W&bg_color=${{ env.BG }}&color=${{ env.TEXT }}&line=${{ env.TITLE }}&point=${{ env.TITLE }}&area_color=1b4332&area=true&hide_border=true&radius=16&_=${{ github.run_id }}"
+          curl -o pin1.svg "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=bylka2W&repo=B-Plus&show_owner=true&bg_color=${{ env.BG }}&title_color=${{ env.TITLE }}&text_color=${{ env.TEXT }}&icon_color=${{ env.ICON }}&border_color=${{ env.BORDER }}&border_radius=16&_=${{ github.run_id }}"
+          curl -o pin2.svg "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=bylka2W&repo=TSS&show_owner=true&bg_color=${{ env.BG }}&title_color=${{ env.TITLE }}&text_color=${{ env.TEXT }}&icon_color=${{ env.ICON }}&border_color=${{ env.BORDER }}&border_radius=16&_=${{ github.run_id }}"
 
       - name: Commit
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add stats.svg streak.svg graph.svg
+          git add stats.svg streak.svg graph.svg pin1.svg pin2.svg
           git diff --staged --quiet || git commit -m "Update stats"
           git push

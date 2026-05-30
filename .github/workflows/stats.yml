@@ -2,7 +2,7 @@ name: Update Stats
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -24,14 +24,18 @@ jobs:
       - name: Generate stats
         run: |
           HOUR=$(date +%H)
-          case $((HOUR % 7)) in
-            0) TITLE=ff0000; TEXT=ff6666; ICON=ff4444; BORDER=cc0000;;
-            1) TITLE=ff7f00; TEXT=ffaa44; ICON=ff9900; BORDER=cc6600;;
-            2) TITLE=ffff00; TEXT=ffff66; ICON=ffdd00; BORDER=cccc00;;
-            3) TITLE=00ff00; TEXT=66ff66; ICON=44ff44; BORDER=00cc00;;
-            4) TITLE=00ffff; TEXT=66ffff; ICON=44ddff; BORDER=00cccc;;
-            5) TITLE=0000ff; TEXT=6666ff; ICON=4444ff; BORDER=0000cc;;
-            6) TITLE=8b00ff; TEXT=aa66ff; ICON=9944ff; BORDER=6a00cc;;
+          case $((HOUR % 8)) in
+            0) TITLE=ff0000; TEXT=ff6666; ICON=ff4444; BORDER=cc0000;;  # красный
+            1) TITLE=ff7f00; TEXT=ffaa44; ICON=ff9900; BORDER=cc6600;;  # оранжевый
+            2) TITLE=ffff00; TEXT=ffff66; ICON=ffdd00; BORDER=cccc00;;  # жёлтый
+            3) TITLE=00ff00; TEXT=66ff66; ICON=44ff44; BORDER=00cc00;;  # зелёный
+            4) TITLE=00ffff; TEXT=66ffff; ICON=44ddff; BORDER=00cccc;;  # голубой
+            5) TITLE=0000ff; TEXT=6666ff; ICON=4444ff; BORDER=0000cc;;  # синий
+            6) TITLE=8b00ff; TEXT=aa66ff; ICON=9944ff; BORDER=6a00cc;;  # фиолетовый
+            7) TITLE=$(printf '%02x%02x%02x' $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)))
+               TEXT=$(printf '%02x%02x%02x' $((RANDOM%128+128)) $((RANDOM%128+128)) $((RANDOM%128+128)))
+               ICON=$TEXT
+               BORDER=$TITLE;;
           esac
           curl -o stats.svg "https://github-readme-stats-eight-theta.vercel.app/api?username=bylka2W&show_icons=true&bg_color=${{ env.BG }}&title_color=$TITLE&text_color=$TEXT&icon_color=$ICON&border_color=$BORDER&_=${{ github.run_id }}"
           curl -o streak.svg "https://streak-stats.demolab.com/?user=bylka2W&background=${{ env.BG }}&ring=$TITLE&fire=$TITLE&currStreakLabel=$TITLE&currStreakNum=$TITLE&sideNums=$TEXT&sideLabels=$TEXT&dates=$TEXT&border=$BORDER&stroke=$BORDER&border_radius=${{ env.RADIUS }}&_=${{ github.run_id }}"

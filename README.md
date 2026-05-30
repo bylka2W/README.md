@@ -1,9 +1,13 @@
 <div align="center">
 
-## 🌐 Контакты
+## 📊 Статистика GitHub
 
-<a href="https://t.me" style="text-decoration: none;">
-  <img src="https://shields.io" style="border-radius: 20px;" height="40"/>
-</a>
+<img src="https://vercel.app" height="165" alt="Stats" />
+
+<img src="https://vercel.app" height="165" alt="Languages" />
+
+<br /><br />
+
+<img src="https://herokuapp.com" height="165" alt="Streak" />
 
 </div>

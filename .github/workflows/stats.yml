@@ -49,15 +49,24 @@ jobs:
           sed -i "s/rx=\"[^\"]*\"/rx=\"${{ env.RX }}\"/g" stats.svg pin1.svg pin2.svg graph.svg
           sed -i "s/stroke=\"#[^\"]*\"/stroke=\"#$BORDER\"/g" stats.svg pin1.svg pin2.svg graph.svg
 
-      - name: Commit
+      - name: Commit main
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add stats.svg streak.svg graph.svg pin1.svg pin2.svg
+          git add stats.svg streak.svg graph.svg pin1.svg pin2.svg README.md
           git diff --staged --quiet || git commit -m "Update stats"
-          git push
+          git push origin main
+
+      - name: Push gitverse branch
+        run: |
+          sed -i 's/height="165.5"/height="200"/g' README.md
+          git add README.md
+          git commit -m "GitVerse size" || echo "No changes"
+          git checkout -b gitverse 2>/dev/null || git checkout gitverse
+          git pull origin main --rebase -X theirs 2>/dev/null || true
+          git push origin gitverse --force
 
       - name: Push to GitVerse
         run: |
           git remote add gitverse https://${{ secrets.GITVERSE_USER }}:${{ secrets.GITVERSE_TOKEN }}@gitverse.ru/bylka2W/bylka2W.git
-          git push gitverse main --force
+          git push gitverse gitverse:main --force

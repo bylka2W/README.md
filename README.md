@@ -4,6 +4,6 @@
   <img src="./streak.svg" height="165.5" />
 </p>
 <p align="center">
-  <img src="./pin1.svg" height="165.5" />
-  <img src="./pin2.svg" height="165.5" />
+  <img src="./pin1.svg" height="130" />
+  <img src="./pin2.svg" height="130" />
 </p>

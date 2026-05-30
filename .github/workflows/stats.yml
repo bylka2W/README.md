@@ -18,11 +18,12 @@ jobs:
         run: |
           curl -o stats.svg "https://github-readme-stats-eight-theta.vercel.app/api?username=bylka2W&show_icons=true&theme=merko"
           curl -o streak.svg "https://streak-stats.demolab.com/?user=bylka2W&theme=merko"
+          curl -o graph.svg "https://github-readme-activity-graph.vercel.app/graph?username=bylka2W&theme=merko"
 
       - name: Commit
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add stats.svg streak.svg
+          git add stats.svg streak.svg graph.svg
           git diff --staged --quiet || git commit -m "Update stats"
           git push

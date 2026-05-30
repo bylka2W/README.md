@@ -9,6 +9,7 @@ permissions:
   contents: write
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   BG: 0d1117
   TITLE: b366ff
   TEXT: c792ea

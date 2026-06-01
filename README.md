@@ -7,4 +7,4 @@
   <a href="https://github.com/bylka2W/B-Plus"><img src="./pin1.svg" width="49.6%" /></a>
   <a href="https://github.com/bylka2W/TSS"><img src="./pin2.svg" width="49.6%" /></a>
 </p> 
-![snake animation](https://raw.githubusercontent.com/bylka2W/bylka2W/snake/github-snake-dark.svg) 
+![snake animation](https://github.com/bylka2W/bylka2W/blob/snake/github-snake-dark.svg?raw=true)

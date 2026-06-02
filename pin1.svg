@@ -1,8 +1,8 @@
 
       <svg
         width="400"
-        height="120"
-        viewBox="0 0 400 120"
+        height="150"
+        viewBox="0 0 400 150"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -73,10 +73,10 @@
     
 
     <text class="description" x="25" y="-5">
-      <tspan dy="1.2em" x="25">No description provided</tspan>
+      <tspan dy="1.2em" x="25">A high-performance compiler and JIT/AOT engine for the B+</tspan><tspan dy="1.2em" x="25">state-machine programming language, featuring native</tspan><tspan dy="1.2em" x="25">x64/LLVM generation, SIMD kernels, and an adaptive...</tspan>
     </text>
 
-    <g transform="translate(0, 45)">
+    <g transform="translate(0, 75)">
       
     <g data-testid="primary-lang" transform="translate(30, 0)">
       <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill="#178600" />
